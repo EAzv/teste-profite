@@ -37,7 +37,9 @@
 		</div>
 	</main>
 
-
+	<footer>
+		<!-- -->
+	</footer>
 	<script type="text/javascript" src="build/js/index.js<?=  uniqid('?=') ?>"></script>
 </body>
 </html>

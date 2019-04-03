@@ -18,6 +18,7 @@ body {
   height: 100%;
   position: relative;
   padding: 0;
+  margin: 0;
   word-wrap: break-word; }
   body header.header {
     display: block;
@@ -104,14 +105,49 @@ body {
           background-repeat: no-repeat;
           background-size: contain;
           background-position: 49% 49%; }
-  body .gallery {
+  body main {
     display: block;
+    position: relative;
+    margin: 1rem auto 1.3rem;
+    width: 90%;
+    max-width: 1097px; }
+    body main .gallery {
+      display: block;
+      width: 100%;
+      min-height: 50px;
+      background: #2EC4B6; }
+    body main div.products {
+      display: block;
+      width: 100%;
+      min-height: 50px;
+      background: #fff; }
+      body main div.products > h1 {
+        font-family: Ubuntu;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 1.3rem;
+        line-height: normal; }
+      body main div.products div[data-primeirosProdutos] div {
+        display: inline-block;
+        border: 1px solid;
+        width: 48%;
+        margin: 0;
+        vertical-align: top; }
+        body main div.products div[data-primeirosProdutos] div img {
+          display: block;
+          width: 7rem; }
+        body main div.products div[data-primeirosProdutos] div h1 {
+          font-size: 1.4rem; }
+        body main div.products div[data-primeirosProdutos] div h2 {
+          font-size: 1.2rem;
+          font-weight: normal; }
+        body main div.products div[data-primeirosProdutos] div span {
+          font-size: 0.9rem; }
+  body footer {
+    display: block;
+    position: relative;
+    margin: 0;
     width: 100%;
     min-height: 50px;
-    background: #2EC4B6; }
-  body .products > h1 {
-    font-family: Ubuntu;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 1.3rem;
-    line-height: normal; }
+    bottom: 0px;
+    background: #011627; }
