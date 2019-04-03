@@ -27,6 +27,10 @@ gulp.task('babel', function () {
 		.pipe(babel({
 			presets: ['@babel/env']
 		}))
+		.on('error', (error)=> {
+			console.log(error.toString());
+		    this.emit('end');
+		})
 		.pipe(gulp.dest(babel_buildDir));
 });
 

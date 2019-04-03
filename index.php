@@ -26,6 +26,18 @@
 		</nav>
 	</header>
 
-	<script type="text/javascript" src="build/js/index.js"></script>
+	<main>
+		<div class="gallery"></div>
+
+		<div class="products">
+			<h1>Produtos</h1>
+
+			<!-- Elemento que receberá a lista de produtos -->
+			<div data-primeirosProdutos></div>
+		</div>
+	</main>
+
+
+	<script type="text/javascript" src="build/js/index.js<?=  uniqid('?=') ?>"></script>
 </body>
 </html>
