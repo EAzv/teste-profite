@@ -1,0 +1,30 @@
+{
+  "name": "teste-profite",
+  "version": "1.0.0",
+  "description": "Teste para a vaga de desenvolvedor font-end",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EAzv/teste-profite.git"
+  },
+  "author": "Eduardo Azevedo <eduardo@eazv.net>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/EAzv/teste-profite/issues"
+  },
+  "homepage": "https://github.com/EAzv/teste-profite#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-cli": "^1.2.2",
+    "gulp-sass": "^4.0.2",
+    "gulp-watch": "^4.3.10",
+    "node-sass": "^4.11.0"
+  }
+}
