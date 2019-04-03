@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>teste-profite</title>
 
-	<link rel="stylesheet" href="build/css/index.css?=5ca4e87bee414" type="text/css" media="all"/>
+	<link rel="stylesheet" href="build/css/index.css<?=  uniqid('?=') ?>" type="text/css" media="all"/>
 </head>
 <body>
 	<header class="header">
@@ -29,4 +29,3 @@
 	<script type="text/javascript" src="build/js/index.js"></script>
 </body>
 </html>
-
