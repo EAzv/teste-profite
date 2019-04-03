@@ -25,6 +25,7 @@ gulp.task('babel', function () {
 	console.log(' Compiling Babel js ');
 	return gulp.src(babel_srcWatch)
 		.pipe(babel({
+			plugins: ["@babel/plugin-transform-modules-amd"],
 			presets: ['@babel/env']
 		}))
 		.on('error', (error)=> {

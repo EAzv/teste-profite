@@ -40,6 +40,9 @@
 	<footer>
 		<!-- -->
 	</footer>
-	<script type="text/javascript" src="build/js/index.js<?=  uniqid('?=') ?>"></script>
+	<script
+	 data-main="build/js/index.js<?=  uniqid('?=') ?>"
+	 src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"
+	 type="text/javascript"></script>
 </body>
 </html>
