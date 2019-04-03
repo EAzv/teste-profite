@@ -29,111 +29,8 @@ body {
 	margin: 0;
 	word-wrap: break-word;
 
-	// site header
-	header.header {
-		display: block;
-		position: relative;
-		margin: 1rem auto 1.3rem;
-		width: 90%;
-		max-width: $max_default_size;
-		cursor: default;
-
-		nav.navbar {
-			display: flex;
-			position: relative;
-			flex-wrap: wrap;
-			align-items: center;
-
-			a.logo {
-				order: 2;
-				margin: 0 auto;
-
-				img {
-					display: block;
-					margin: 0;
-					width: 4.69rem;
-					height: auto;
-				}
-			}
-
-			a.cart-icon {
-				order: 3;
-				width: 2.14rem;
-				height: 1.9rem;
-				border: none;
-				background: transparent;
-				background-image: url("../../images/cart-icon.svg");
-				background-repeat: no-repeat;
-				background-size: 1.2rem;
-				background-position: 1% 49%;
-
-				span {
-					position: absolute;
-					top: 0.63rem; right: 0.1rem;
-					background: #2EC4B6;
-					color: #fff;
-					font-size: 0.72rem;
-					width: 0.8rem;
-					height: 0.8rem;
-					border-radius: 100%;
-					text-align: center;
-					padding: 0;
-					line-height: 1;
-				}
-			}
-
-			button.toggle-menu {
-				order: 1;
-				width: 1.9rem;
-				height: 1.9rem;
-				color: transparent;
-				border: none;
-				cursor: pointer;
-				background: transparent;
-				background-image: url("../../images/menu-icon.svg");
-				background-repeat: no-repeat;
-				background-size: 77%;
-				background-position: 49% 49%;
-			}
-
-			div.search {
-				order: 4;
-				display: block;
-				position: relative;
-				margin: 0.49rem auto 0.2rem;
-				padding: 0;
-				width: 100%;
-				overflow: hidden;
-
-				input[type="text"] {
-					display: inline-block;
-					position: relative;
-					padding: 0.52rem 0.64rem;
-					border: none;
-					border-bottom: 1px solid #7A7A7A;
-					width: 100%;
-				}
-
-				input[type="submit"] {
-					position: absolute;
-					top: 0.39rem;
-					right: 0rem;
-					width: 1.3rem;
-					height: 1.3rem;
-					padding: 0;
-					color: transparent;
-					border: none;
-					cursor: pointer;
-					background: transparent;
-					background-image: url("../../images/glass-icon.svg");
-					background-repeat: no-repeat;
-					background-size: contain;
-					background-position: 49% 49%;
-				}
-			}
-		}
-	}
-
+	// header
+	@import "./_header.scss";
 
 	main {
 		display: block;
@@ -142,12 +39,8 @@ body {
 		width: 90%;
 		max-width: $max_default_size;
 
-		.gallery {
-			display: block;
-			width: 100%;
-			min-height: 50px;
-			background: #2EC4B6;
-		}
+		// home banner
+		@import "./_banner.scss";
 
 
 		div.products {
@@ -163,7 +56,7 @@ body {
 				font-size: 1.3rem;
 				line-height: normal;
 			}
-		
+
 			div[data-primeirosProdutos] {
 				div {
 					display: inline-block;

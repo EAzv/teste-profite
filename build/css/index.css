@@ -111,7 +111,7 @@ body {
     margin: 1rem auto 1.3rem;
     width: 90%;
     max-width: 1097px; }
-    body main .gallery {
+    body main div.banner {
       display: block;
       width: 100%;
       min-height: 50px;
