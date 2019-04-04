@@ -300,11 +300,11 @@ body {
                   width: 70%; } }
               body main div.products div[data-primeirosProdutos] ul li div img {
                 display: block;
-                width: 72%;
+                width: 7.2rem;
                 margin: 0 auto; }
                 @media only screen and (min-width: 812px) {
                   body main div.products div[data-primeirosProdutos] ul li div img {
-                    width: 67%; } }
+                    width: 6.7rem; } }
               body main div.products div[data-primeirosProdutos] ul li div h1 {
                 font-size: 0.9rem;
                 margin: 0.3rem auto 0; }

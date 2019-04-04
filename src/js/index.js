@@ -11,18 +11,18 @@ import setupSlider from "./bannerSlider.js";
  */
 (function ()
 {
-	//
+	// configura o slider no banner principal
 	setupSlider(
 		document.getElementById('banner_slider')
 	);
 
-	//
+	// prepara a lista de produtos em destaque
 	let primeirosProdutos = new LoadProducts(
 		'../../produtos.json',
 		document.querySelector('[data-primeirosProdutos]')
 	);
 
-	// executa o carregamento da lista e passa um template para os itens
+	// executa a exibição da lista passando um template para os itens
 	primeirosProdutos.process((produto) => `
 			<div>
 				${produto.off?'<div class="off">Off</div>':''}

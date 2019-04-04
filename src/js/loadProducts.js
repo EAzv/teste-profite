@@ -119,6 +119,9 @@ export default class LoadProducts
 			touchstartX = 0;
 			touchendX = 0;
 		}, false);
+
+		// caso a janela seja redimencionada
+		window.addEventListener('resize', event => this.setupBoxes());
 	}
 }
 

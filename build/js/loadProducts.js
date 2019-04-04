@@ -223,7 +223,12 @@ define(["exports"], function (_exports) {
           if (touchendX < touchstartX) _this3._setSlider(1);else if (touchendX > touchstartX) _this3._setSlider(-1);
           touchstartX = 0;
           touchendX = 0;
-        }, false);
+        }, false); // caso a janela seja redimencionada
+
+
+        window.addEventListener('resize', function (event) {
+          return _this3.setupBoxes();
+        });
       }
     }]);
 

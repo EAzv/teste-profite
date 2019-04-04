@@ -106,6 +106,9 @@ export default function bannerSlider (element)
 		// adicionar  eventos as setas
 		element.querySelectorAll('div.arrows span')[0].addEventListener('click', event => _prevSlider(), true);
 		element.querySelectorAll('div.arrows span')[1].addEventListener('click', event => _nextSlider(), true);
+
+		// caso a janela seja redimencionada
+		window.addEventListener('resize', event => mainSetup());
 	};
 
 

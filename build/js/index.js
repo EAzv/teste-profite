@@ -15,10 +15,10 @@ define(["./loadProducts.js", "./bannerSlider.js"], function (_loadProducts, _ban
    * Método inicial
    */
   (function () {
-    //
-    (0, _bannerSlider["default"])(document.getElementById('banner_slider')); //
+    // configura o slider no banner principal
+    (0, _bannerSlider["default"])(document.getElementById('banner_slider')); // prepara a lista de produtos em destaque
 
-    var primeirosProdutos = new _loadProducts["default"]('../../produtos.json', document.querySelector('[data-primeirosProdutos]')); // executa o carregamento da lista e passa um template para os itens
+    var primeirosProdutos = new _loadProducts["default"]('../../produtos.json', document.querySelector('[data-primeirosProdutos]')); // executa a exibição da lista passando um template para os itens
 
     primeirosProdutos.process(function (produto) {
       return "\n\t\t\t<div>\n\t\t\t\t".concat(produto.off ? '<div class="off">Off</div>' : '', "\n\t\t\t\t<img src=\"images/products/").concat(produto.image, "\">\n\t\t\t\t<h1>").concat(produto.title, "</h1>\n\t\t\t\t<del>de R$ ").concat(produto.old_price, "</del>\n\t\t\t\t<h2>por R$ ").concat(produto.price, "</h2>\n\t\t\t\t<span>").concat(produto.note, "</span>\n\t\t\t\t<button>Comprar</button>\n\t\t\t</div>\n\t\t");

@@ -67,10 +67,10 @@ div.products {
 
 					img {
 						display: block;
-						width: 72%;
+						width: 7.2rem;
 						margin: 0 auto;
 						@media only screen and (min-width: $mobile_size) { // em desktop
-							width: 67%;
+							width: 6.7rem;
 						}
 					}
 					h1 {

@@ -154,7 +154,11 @@ define(["exports"], function (_exports) {
       }, true);
       element.querySelectorAll('div.arrows span')[1].addEventListener('click', function (event) {
         return _nextSlider();
-      }, true);
+      }, true); // caso a janela seja redimencionada
+
+      window.addEventListener('resize', function (event) {
+        return mainSetup();
+      });
     };
 
     mainSetup();
