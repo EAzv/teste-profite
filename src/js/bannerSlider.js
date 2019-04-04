@@ -15,15 +15,26 @@ export default function bannerSlider (element)
 		slide.style['height'] = `${wrapHeight}px`;
 	};
 
-	//
+	// prepara os marcadores de slide
 	var setupBoxNavCounter = function (num) {
 		var _html = '';
-		var _counter = element.querySelector('div[data-boxnavcounter]') || element.appendChild(document.createElement('div'));
-		_counter.setAttribute('data-boxnavcounter', true);
+		var _count_wrap = element.querySelector('div[data-boxnavcounter]') || element.appendChild(document.createElement('div'));
+
+		if (!_count_wrap.getAttribute('data-boxnavcounter'))
+			_count_wrap.setAttribute('data-boxnavcounter', 0);
+
+		_count_wrap.setAttribute('class', 'markers');
 
 		for (let i=0; i < num; i++)
-			_html += ` <span class="${i==currentSlide?'curr':''}" ><i></i></span> `;
-		_counter.innerHTML = _html;
+			_html += ` <span class="${i==currentSlide?'curr':''}" data-countnum="${i}"></span> `;
+		_count_wrap.innerHTML = _html;
+
+		//aplica eventos aos marcadores
+		for (let _c_elm of _count_wrap.getElementsByTagName('span'))
+			_c_elm.addEventListener('click', (event) => {
+				inWrap.setAttribute('data-counter', event.target.dataset.countnum);
+				mainSetup();
+			}, true);
 	};
 
 	// preenche o background calculando o tamanho proporcional da imagem redimencionada
@@ -40,22 +51,22 @@ export default function bannerSlider (element)
 	};
 
 	var _prevSlider = function () {
-		currentSlide--;
-		if (currentSlide < 0)
+		currentSlide = parseInt(currentSlide)-1;
+		if (currentSlide <= -1)
 			currentSlide = slides.length-1;
 		inWrap.setAttribute('data-counter', currentSlide);
 		mainSetup();
 	};
 
 	var _nextSlider = function () {
-		currentSlide++;
-		if (currentSlide > slides.length-1)
+		currentSlide = parseInt(currentSlide)+1;
+		if (currentSlide >= slides.length)
 			currentSlide = 0;
 		inWrap.setAttribute('data-counter', currentSlide);
 		mainSetup();
 	};
 
-	//
+	// define as variáveis e os métodos recorrentes
 	var mainSetup = function () {
 		inWrap = element.getElementsByTagName('ul')[0];
 		slides = element.getElementsByTagName('li');
@@ -91,6 +102,10 @@ export default function bannerSlider (element)
 			touchstartX = 0;
 			touchendX = 0;
 		}, false);
+
+		// adicionar  eventos as setas
+		element.querySelectorAll('div.arrows span')[0].addEventListener('click', event => _prevSlider(), true);
+		element.querySelectorAll('div.arrows span')[1].addEventListener('click', event => _nextSlider(), true);
 	};
 
 

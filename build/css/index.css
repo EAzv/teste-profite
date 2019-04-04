@@ -142,6 +142,9 @@ body {
         list-style: none;
         width: 100%;
         height: 14.9rem; }
+        @media only screen and (min-width: 812px) {
+          body main div.banner ul {
+            height: 26.3rem; } }
         body main div.banner ul li {
           position: absolute;
           margin: 0;
@@ -149,7 +152,7 @@ body {
           width: 100%;
           list-style: none;
           overflow: hidden;
-          background: #209086;
+          background: #011627;
           transition: left 1s linear; }
           body main div.banner ul li h1 {
             position: relative;
@@ -161,6 +164,11 @@ body {
             margin: 0;
             padding: 1.2rem;
             cursor: default; }
+            @media only screen and (min-width: 812px) {
+              body main div.banner ul li h1 {
+                font-size: 2.47rem;
+                width: 37%;
+                margin: 7.99rem 0 3rem 9rem; } }
             body main div.banner ul li h1:after {
               content: '';
               display: block;
@@ -172,8 +180,12 @@ body {
               background: #FF9F1C; }
           body main div.banner ul li img {
             position: absolute;
+            background: #2EC4B6;
             opacity: 0.6; }
-      body main div.banner div[data-boxnavcounter] {
+            @media only screen and (min-width: 812px) {
+              body main div.banner ul li img {
+                left: 50% !important; } }
+      body main div.banner div.markers {
         display: block;
         position: absolute;
         width: 100%;
@@ -183,21 +195,53 @@ body {
         bottom: 1px;
         text-align: center;
         z-index: 9999; }
-        body main div.banner div[data-boxnavcounter] span {
+        body main div.banner div.markers span {
           display: inline-block;
           width: 12px;
           height: 12px;
           text-align: center;
-          cursor: default; }
-          body main div.banner div[data-boxnavcounter] span i {
+          cursor: pointer; }
+          body main div.banner div.markers span:before {
+            content: '';
             display: block;
             width: 7.9px;
             height: 7.9px;
             border: none;
             border-radius: 4px;
             background: #BDBDBD; }
-          body main div.banner div[data-boxnavcounter] span.curr i {
+          body main div.banner div.markers span.curr:before {
             background: #FF9F1C; }
+      body main div.banner div.arrows {
+        display: block;
+        position: relative;
+        top: 45%;
+        width: 99%;
+        height: 1px;
+        max-width: 1097px;
+        margin: 0 auto; }
+        @media only screen and (max-width: 812px) {
+          body main div.banner div.arrows {
+            display: none; } }
+        body main div.banner div.arrows span {
+          position: absolute;
+          top: -14.9rem;
+          right: -0.1rem;
+          left: auto;
+          width: 1.9rem;
+          height: 1.9rem;
+          padding: 0;
+          color: transparent;
+          border: none;
+          cursor: pointer;
+          background: transparent;
+          background-image: url("../../images/arrow-icon.svg");
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: 49% 49%; }
+          body main div.banner div.arrows span:first-child {
+            left: -0.1rem;
+            right: auto;
+            transform: rotate(180deg); }
     body main div.products {
       display: block;
       width: 100%;

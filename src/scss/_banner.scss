@@ -15,6 +15,10 @@ div.banner {
 		width: 100%;
 		height: 14.9rem;
 
+		@media only screen and (min-width: $mobile_size) { // em desktop
+			height: 26.3rem;
+		}
+
 		li {
 			position: absolute;
 			margin: 0;
@@ -22,7 +26,7 @@ div.banner {
 			width: 100%;
 			list-style: none;
 			overflow: hidden;
-			background: #209086;
+			background: #011627;
 			transition: left 1s linear;
 
 			h1 {
@@ -35,6 +39,12 @@ div.banner {
 				margin: 0;
 				padding: 1.2rem;
 				cursor: default;
+
+				@media only screen and (min-width: $mobile_size) { // em desktop
+					font-size: 2.47rem;
+					width: 37%;
+					margin: 7.99rem 0 3rem 9rem;
+				}
 
 				&:after {
 					content: '';
@@ -50,12 +60,16 @@ div.banner {
 
 			img {
 				position: absolute;
+				background: #2EC4B6;
 				opacity: 0.6;
+				@media only screen and (min-width: $mobile_size) { // em desktop força ocupar metade
+					left: 50% !important;
+				}
 			}
 		}
 	}
 
-	div[data-boxnavcounter] {
+	div.markers {
 		display: block;
 		position: absolute;
 		width: 100%;
@@ -70,9 +84,10 @@ div.banner {
 			width: 12px;
 			height: 12px;
 			text-align: center;
-			cursor: default;
+			cursor: pointer;
 
-			i {
+			&:before {
+				content: '';
 				display: block;
 				width: 7.9px;
 				height: 7.9px;
@@ -81,7 +96,46 @@ div.banner {
 				background: #BDBDBD;
 			}
 
-			&.curr i { background: $default_yellow; }
+			&.curr:before { background: $default_yellow; }
 		}
+	}
+
+	div.arrows {
+		display: block;
+		position: relative;
+		top: 45%;
+		width: 99%;
+		height: 1px;
+		max-width: $max_default_size;
+		margin: 0 auto;
+
+		@media only screen and (max-width: $mobile_size) { // esconde quando mobile
+			display: none;
+		}
+
+		span {
+			position: absolute;
+			top: -14.9rem;
+			right: -0.1rem;
+			left: auto;
+			width: 1.9rem;
+			height: 1.9rem;
+			padding: 0;
+			color: transparent;
+			border: none;
+			cursor: pointer;
+			background: transparent;
+			background-image: url("../../images/arrow-icon.svg");
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: 49% 49%;
+
+			&:first-child {
+				left: -0.1rem;
+				right: auto;
+				transform: rotate(180deg);
+			}
+		}
+
 	}
 }

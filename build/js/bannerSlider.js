@@ -18,21 +18,51 @@ define(["exports"], function (_exports) {
       slide.style['left'] = "".concat(wrapWidth * index - wrapWidth * currentSlide, "px");
       slide.style['width'] = "".concat(wrapWidth, "px");
       slide.style['height'] = "".concat(wrapHeight, "px");
-    }; //
+    }; // prepara os marcadores de slide
 
 
     var setupBoxNavCounter = function setupBoxNavCounter(num) {
       var _html = '';
 
-      var _counter = element.querySelector('div[data-boxnavcounter]') || element.appendChild(document.createElement('div'));
+      var _count_wrap = element.querySelector('div[data-boxnavcounter]') || element.appendChild(document.createElement('div'));
 
-      _counter.setAttribute('data-boxnavcounter', true);
+      if (!_count_wrap.getAttribute('data-boxnavcounter')) _count_wrap.setAttribute('data-boxnavcounter', 0);
+
+      _count_wrap.setAttribute('class', 'markers');
 
       for (var i = 0; i < num; i++) {
-        _html += " <span class=\"".concat(i == currentSlide ? 'curr' : '', "\" ><i></i></span> ");
+        _html += " <span class=\"".concat(i == currentSlide ? 'curr' : '', "\" data-countnum=\"").concat(i, "\"></span> ");
       }
 
-      _counter.innerHTML = _html;
+      _count_wrap.innerHTML = _html; //aplica eventos aos marcadores
+
+      var _iteratorNormalCompletion = true;
+      var _didIteratorError = false;
+      var _iteratorError = undefined;
+
+      try {
+        for (var _iterator = _count_wrap.getElementsByTagName('span')[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+          var _c_elm = _step.value;
+
+          _c_elm.addEventListener('click', function (event) {
+            inWrap.setAttribute('data-counter', event.target.dataset.countnum);
+            mainSetup();
+          }, true);
+        }
+      } catch (err) {
+        _didIteratorError = true;
+        _iteratorError = err;
+      } finally {
+        try {
+          if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+            _iterator["return"]();
+          }
+        } finally {
+          if (_didIteratorError) {
+            throw _iteratorError;
+          }
+        }
+      }
     }; // preenche o background calculando o tamanho proporcional da imagem redimencionada
 
 
@@ -56,18 +86,18 @@ define(["exports"], function (_exports) {
     };
 
     var _prevSlider = function _prevSlider() {
-      currentSlide--;
-      if (currentSlide < 0) currentSlide = slides.length - 1;
+      currentSlide = parseInt(currentSlide) - 1;
+      if (currentSlide <= -1) currentSlide = slides.length - 1;
       inWrap.setAttribute('data-counter', currentSlide);
       mainSetup();
     };
 
     var _nextSlider = function _nextSlider() {
-      currentSlide++;
-      if (currentSlide > slides.length - 1) currentSlide = 0;
+      currentSlide = parseInt(currentSlide) + 1;
+      if (currentSlide >= slides.length) currentSlide = 0;
       inWrap.setAttribute('data-counter', currentSlide);
       mainSetup();
-    }; //
+    }; // define as variáveis e os métodos recorrentes
 
 
     var mainSetup = function mainSetup() {
@@ -76,28 +106,28 @@ define(["exports"], function (_exports) {
       wrapHeight = parseInt(element.offsetHeight);
       wrapWidth = parseInt(element.offsetWidth);
       currentSlide = inWrap.getAttribute('data-counter') || 0;
-      var _iteratorNormalCompletion = true;
-      var _didIteratorError = false;
-      var _iteratorError = undefined;
+      var _iteratorNormalCompletion2 = true;
+      var _didIteratorError2 = false;
+      var _iteratorError2 = undefined;
 
       try {
-        for (var _iterator = slides[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-          var slide = _step.value;
+        for (var _iterator2 = slides[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+          var slide = _step2.value;
           var index = index + 1 || 0;
           setupBoxSize(slide, index);
           setupBackground(slide.getElementsByTagName('img')[0]);
         }
       } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
+        _didIteratorError2 = true;
+        _iteratorError2 = err;
       } finally {
         try {
-          if (!_iteratorNormalCompletion && _iterator["return"] != null) {
-            _iterator["return"]();
+          if (!_iteratorNormalCompletion2 && _iterator2["return"] != null) {
+            _iterator2["return"]();
           }
         } finally {
-          if (_didIteratorError) {
-            throw _iteratorError;
+          if (_didIteratorError2) {
+            throw _iteratorError2;
           }
         }
       }
@@ -117,7 +147,14 @@ define(["exports"], function (_exports) {
         if (touchendX < touchstartX) _nextSlider();else if (touchendX > touchstartX) _prevSlider();
         touchstartX = 0;
         touchendX = 0;
-      }, false);
+      }, false); // adicionar  eventos as setas
+
+      element.querySelectorAll('div.arrows span')[0].addEventListener('click', function (event) {
+        return _prevSlider();
+      }, true);
+      element.querySelectorAll('div.arrows span')[1].addEventListener('click', function (event) {
+        return _nextSlider();
+      }, true);
     };
 
     mainSetup();
