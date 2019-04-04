@@ -79,7 +79,7 @@ define(["exports"], function (_exports) {
         size.height = size._height / size._width * (size.width += 1);
       }
 
-      image.style['top'] = "".concat(0, "px");
+      image.style['top'] = "".concat((size.height - wrapHeight) / 2 * -1, "px");
       image.style['left'] = "".concat(0, "px");
       image.style['width'] = "".concat(size.width, "px");
       image.style['height'] = "".concat(size.height, "px");

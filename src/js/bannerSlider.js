@@ -44,7 +44,7 @@ export default function bannerSlider (element)
 		while (size.width <= wrapWidth || size.height <= wrapHeight) // NAI = AI / LI * NLI
 			size.height = size._height / size._width * (size.width += 1);
 
-		image.style['top']    = `${0}px`;
+		image.style['top']    = `${((size.height-wrapHeight)/2)*-1}px`;
 		image.style['left']   = `${0}px`;
 		image.style['width']  = `${size.width}px`;
 		image.style['height'] = `${size.height}px`;

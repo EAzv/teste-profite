@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>teste-profite</title>
 
-	<link rel="stylesheet" href="build/css/index.css<?=  uniqid('?=') ?>" type="text/css" media="all"/>
+	<link rel="stylesheet" href="build/css/index.css?" type="text/css" media="all"/>
 </head>
 <body>
 	<header class="header">
@@ -77,7 +77,7 @@
 		</div>
 	</footer>
 	<script
-	 data-main="build/js/index.js<?=  uniqid('?=') ?>"
+	 data-main="build/js/index.js?"
 	 src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js"
 	 type="text/javascript"></script>
 </body>
