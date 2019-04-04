@@ -18,8 +18,10 @@ export default class LoadProducts
 	_parse (list) {
 		var html = '';
 		for(let item of list)
-			html += this._wrapper(item);
-		this._element.innerHTML = html;
+			html += `<li>${this._wrapper(item)}</li>`;
+		this._element.innerHTML = `<ul>${html}</ul>`;
+		this.setupBoxes();
+		this.setupSwipeEvents();
 	}
 
 	/**
@@ -33,6 +35,72 @@ export default class LoadProducts
 		 .then(response => response.json()) // retornar como json
 		 .then(result => this._parse(result))
 		 .catch(err => console.error('Fail:', err));
+	}
+
+	/**
+	 * prepara as caixas
+	 */
+	setupBoxes ()
+	{
+		var cwrap = this._element.querySelector('div[data-counter]') || this._element.appendChild(document.createElement('div'));
+		var curr  = cwrap.getAttribute('data-counter') || 0;
+		var wrap  = this._element.getElementsByTagName('ul');
+		var cards = this._element.getElementsByTagName('li');
+		var fullW = this._element.offsetWidth-1;
+		var ncols = isMobile()? 2: 4;
+		var cardW = (fullW/ncols-1);
+
+		for (let card of cards) {
+			let index = index +1 || 0;
+			card.style.width = cardW+'px';
+			card.style.left = ((cardW*index)-(cardW*curr))+'px';
+		}
+
+		var _count_html = '';
+		cwrap.setAttribute('data-counter', curr);
+
+		for (let i=0; i <= (cards.length-1); i++)
+			_count_html += `<span class="${i==curr?'curr':''}" data-countnum="${i}"></span>`;
+		cwrap.innerHTML = _count_html;
+
+		//aplica eventos aos marcadores
+		for (let cwrap_elm of cwrap.getElementsByTagName('span'))
+			cwrap_elm.addEventListener('click', (event) => {
+				this._element.querySelector('div[data-counter]')
+				 .setAttribute('data-counter', event.target.dataset.countnum);
+				this.setupBoxes();
+			}, true);
+	}
+
+	/**
+	 * prepara os eventos
+	 */
+	setupSwipeEvents ()
+	{
+		let touchstartX = 0;
+		let touchendX = 0;
+
+		this._element.addEventListener('touchstart', (event) => {
+			touchstartX = event.changedTouches[0].screenX;
+		}, false);
+
+		this._element.addEventListener('touchend', (event) => {
+			var _cwrap = this._element.querySelector('div[data-counter]');
+			var curr  = _cwrap.getAttribute('data-counter') || 0;
+
+			touchendX = event.changedTouches[0].screenX;
+
+			if (touchendX < touchstartX)
+				curr++;
+			else if (touchendX > touchstartX)
+				curr--;
+
+			_cwrap.setAttribute('data-counter', curr);
+			touchstartX = 0;
+			touchendX = 0;
+
+			this.setupBoxes();
+		}, false);
 	}
 }
 

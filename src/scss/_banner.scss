@@ -81,7 +81,7 @@ div.banner {
 				background: #BDBDBD;
 			}
 
-			&.curr i { background: #FF9F1C; }
+			&.curr i { background: $default_yellow; }
 		}
 	}
 }

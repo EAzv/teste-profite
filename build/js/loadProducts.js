@@ -45,7 +45,7 @@ define(["exports"], function (_exports) {
         try {
           for (var _iterator = list[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
             var item = _step.value;
-            html += this._wrapper(item);
+            html += "<li>".concat(this._wrapper(item), "</li>");
           }
         } catch (err) {
           _didIteratorError = true;
@@ -62,7 +62,9 @@ define(["exports"], function (_exports) {
           }
         }
 
-        this._element.innerHTML = html;
+        this._element.innerHTML = "<ul>".concat(html, "</ul>");
+        this.setupBoxes();
+        this.setupSwipeEvents();
       }
       /**
        * processa
@@ -84,6 +86,120 @@ define(["exports"], function (_exports) {
         })["catch"](function (err) {
           return console.error('Fail:', err);
         });
+      }
+      /**
+       * prepara as caixas
+       */
+
+    }, {
+      key: "setupBoxes",
+      value: function setupBoxes() {
+        var _this2 = this;
+
+        var cwrap = this._element.querySelector('div[data-counter]') || this._element.appendChild(document.createElement('div'));
+
+        var curr = cwrap.getAttribute('data-counter') || 0;
+
+        var wrap = this._element.getElementsByTagName('ul');
+
+        var cards = this._element.getElementsByTagName('li');
+
+        var fullW = this._element.offsetWidth - 1;
+        var ncols = isMobile() ? 2 : 4;
+        var cardW = fullW / ncols - 1;
+        var _iteratorNormalCompletion2 = true;
+        var _didIteratorError2 = false;
+        var _iteratorError2 = undefined;
+
+        try {
+          for (var _iterator2 = cards[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+            var card = _step2.value;
+            var index = index + 1 || 0;
+            card.style.width = cardW + 'px';
+            card.style.left = cardW * index - cardW * curr + 'px';
+          }
+        } catch (err) {
+          _didIteratorError2 = true;
+          _iteratorError2 = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion2 && _iterator2["return"] != null) {
+              _iterator2["return"]();
+            }
+          } finally {
+            if (_didIteratorError2) {
+              throw _iteratorError2;
+            }
+          }
+        }
+
+        var _count_html = '';
+        cwrap.setAttribute('data-counter', curr);
+
+        for (var i = 0; i <= cards.length - 1; i++) {
+          _count_html += "<span class=\"".concat(i == curr ? 'curr' : '', "\" data-countnum=\"").concat(i, "\"></span>");
+        }
+
+        cwrap.innerHTML = _count_html; //aplica eventos aos marcadores
+
+        var _iteratorNormalCompletion3 = true;
+        var _didIteratorError3 = false;
+        var _iteratorError3 = undefined;
+
+        try {
+          for (var _iterator3 = cwrap.getElementsByTagName('span')[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+            var cwrap_elm = _step3.value;
+            cwrap_elm.addEventListener('click', function (event) {
+              _this2._element.querySelector('div[data-counter]').setAttribute('data-counter', event.target.dataset.countnum);
+
+              _this2.setupBoxes();
+            }, true);
+          }
+        } catch (err) {
+          _didIteratorError3 = true;
+          _iteratorError3 = err;
+        } finally {
+          try {
+            if (!_iteratorNormalCompletion3 && _iterator3["return"] != null) {
+              _iterator3["return"]();
+            }
+          } finally {
+            if (_didIteratorError3) {
+              throw _iteratorError3;
+            }
+          }
+        }
+      }
+      /**
+       * prepara os eventos
+       */
+
+    }, {
+      key: "setupSwipeEvents",
+      value: function setupSwipeEvents() {
+        var _this3 = this;
+
+        var touchstartX = 0;
+        var touchendX = 0;
+
+        this._element.addEventListener('touchstart', function (event) {
+          touchstartX = event.changedTouches[0].screenX;
+        }, false);
+
+        this._element.addEventListener('touchend', function (event) {
+          var _cwrap = _this3._element.querySelector('div[data-counter]');
+
+          var curr = _cwrap.getAttribute('data-counter') || 0;
+          touchendX = event.changedTouches[0].screenX;
+          if (touchendX < touchstartX) curr++;else if (touchendX > touchstartX) curr--;
+
+          _cwrap.setAttribute('data-counter', curr);
+
+          touchstartX = 0;
+          touchendX = 0;
+
+          _this3.setupBoxes();
+        }, false);
       }
     }]);
 

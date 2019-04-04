@@ -6,6 +6,7 @@ $mobile_size: 812px;
 $tablet_size: 979px;
 $max_default_size: 1097px;
 $default_color: #4a4a4a;
+$default_yellow: #FF9F1C;
 
 a, a:hover, a:active, a:focus, a:visited,
 button, button:hover, button:active, button:focus {
@@ -41,58 +42,13 @@ body {
 		// home banner
 		@import "./_banner.scss";
 
+		// home products
+		@import "./_products.scss";
 
-		div.products {
-			display: block;
-			width: 90%;
-			max-width: $max_default_size;
-			min-height: 50px;
-			background: #fff;
-
-			>h1 {
-				font-family: Ubuntu;
-				font-style: normal;
-				font-weight: bold;
-				font-size: 1.3rem;
-				line-height: normal;
-			}
-
-			div[data-primeirosProdutos] {
-				div {
-					display: inline-block;
-					border: 1px solid;
-					width: 48%;
-					margin: 0;
-					vertical-align: top;
-
-					img {
-						display: block;
-						width: 7rem;
-					}
-					h1 {
-						font-size: 1.4rem;
-					}
-					h2 {
-						font-size: 1.2rem;
-						font-weight: normal;
-					}
-					span {
-						font-size: 0.9rem;
-					}
-				}
-			}
-		}
 	}
 
-	footer {
-		display: block;
-		position: relative;
-		margin: 0;
-		width: 100%;
-		min-height: 50px;
-		bottom: 0px;
-		background: #011627;
-	}
+	// default footer
+	@import "./_footer.scss";
 
 }
 

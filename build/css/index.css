@@ -182,37 +182,175 @@ body {
             background: #FF9F1C; }
     body main div.products {
       display: block;
-      width: 90%;
+      width: 100%;
       max-width: 1097px;
       min-height: 50px;
-      background: #fff; }
+      background: #fff;
+      margin: 0 auto; }
       body main div.products > h1 {
-        font-family: Ubuntu;
+        position: relative;
         font-style: normal;
         font-weight: bold;
         font-size: 1.3rem;
-        line-height: normal; }
-      body main div.products div[data-primeirosProdutos] div {
-        display: inline-block;
-        border: 1px solid;
-        width: 48%;
-        margin: 0;
-        vertical-align: top; }
-        body main div.products div[data-primeirosProdutos] div img {
+        line-height: normal;
+        margin: 1.7rem auto 3rem;
+        width: 90%; }
+        body main div.products > h1:after {
+          content: '';
           display: block;
-          width: 7rem; }
-        body main div.products div[data-primeirosProdutos] div h1 {
-          font-size: 1.4rem; }
-        body main div.products div[data-primeirosProdutos] div h2 {
-          font-size: 1.2rem;
-          font-weight: normal; }
-        body main div.products div[data-primeirosProdutos] div span {
-          font-size: 0.9rem; }
+          position: absolute;
+          bottom: -0.39rem;
+          left: 0rem;
+          width: 2.1rem;
+          height: 3px;
+          background: #FF9F1C; }
+      body main div.products div[data-primeirosProdutos] {
+        display: block;
+        position: relative;
+        width: 99%;
+        min-height: 50px;
+        margin: 0;
+        padding: 0;
+        background: #fff;
+        overflow: hidden; }
+        body main div.products div[data-primeirosProdutos] ul {
+          position: relative;
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          height: 22rem; }
+          body main div.products div[data-primeirosProdutos] ul li {
+            position: absolute;
+            width: 48%;
+            height: 22rem;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            overflow: hidden;
+            transition: left 1s linear; }
+            body main div.products div[data-primeirosProdutos] ul li div {
+              position: absolute;
+              display: block;
+              top: 0px;
+              left: 0px;
+              width: 99%;
+              margin: 0;
+              text-align: center; }
+              body main div.products div[data-primeirosProdutos] ul li div img {
+                display: inline;
+                width: 90%; }
+              body main div.products div[data-primeirosProdutos] ul li div h1 {
+                font-size: 0.9rem;
+                margin: 0.3rem auto 0; }
+              body main div.products div[data-primeirosProdutos] ul li div del {
+                font-size: 0.7rem; }
+              body main div.products div[data-primeirosProdutos] ul li div h2 {
+                font-size: 1.2rem;
+                font-weight: normal;
+                color: #2EC4B6;
+                margin: 0; }
+              body main div.products div[data-primeirosProdutos] ul li div span {
+                font-size: 0.9rem; }
+              body main div.products div[data-primeirosProdutos] ul li div button {
+                display: block;
+                width: 8.97rem;
+                height: 2.99rem;
+                margin: 0.1rem auto;
+                color: transparent;
+                border: none;
+                cursor: pointer;
+                background: transparent;
+                background-image: url("../../images/btn-comprar.svg");
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: 49% 49%; }
+              body main div.products div[data-primeirosProdutos] ul li div div.off {
+                position: absolute;
+                top: 0px;
+                border: none;
+                color: #fff;
+                background: #FF9F1C; }
+        body main div.products div[data-primeirosProdutos] div[data-counter] {
+          display: block;
+          position: relative;
+          width: 100%;
+          top: auto;
+          left: 1px;
+          right: 1px;
+          bottom: 1px;
+          text-align: center;
+          z-index: 9999; }
+          body main div.products div[data-primeirosProdutos] div[data-counter] span {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            text-align: center;
+            cursor: pointer; }
+            body main div.products div[data-primeirosProdutos] div[data-counter] span:before {
+              content: '';
+              display: block;
+              width: 7.9px;
+              height: 7.9px;
+              border: none;
+              border-radius: 4px;
+              background: #BDBDBD; }
+            body main div.products div[data-primeirosProdutos] div[data-counter] span.curr:before {
+              background: #FF9F1C; }
   body footer {
     display: block;
     position: relative;
     margin: 0;
+    padding: 0;
     width: 100%;
     min-height: 50px;
     bottom: 0px;
     background: #011627; }
+    body footer div {
+      display: flex;
+      flex-direction: column;
+      width: 90%;
+      max-width: 1097px;
+      min-height: 50px;
+      margin: 0 auto;
+      padding: 1rem 0 1rem; }
+      @media only screen and (min-width: 812px) {
+        body footer div {
+          flex-direction: row; } }
+      body footer div div.block {
+        display: block;
+        width: 100%; }
+        @media only screen and (min-width: 812px) {
+          body footer div div.block {
+            display: inline-block;
+            width: 33.3%; } }
+        body footer div div.block h1 {
+          position: relative;
+          color: #fff;
+          font-style: normal;
+          font-weight: bold;
+          font-size: 1.3rem;
+          line-height: normal;
+          margin: 0.7rem 0 0.1rem;
+          width: 90%; }
+          body footer div div.block h1:after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: -0.39rem;
+            left: 0rem;
+            width: 2.1rem;
+            height: 3px;
+            background: #FF9F1C; }
+        body footer div div.block h2 {
+          color: #fff;
+          font-style: normal;
+          font-size: 1rem;
+          margin-bottom: 0.2rem; }
+        body footer div div.block p {
+          color: #fff;
+          font-style: normal;
+          font-size: 0.87rem;
+          margin-top: 0.1rem; }
+        body footer div div.block .address {
+          display: inline-block;
+          width: 49%; }

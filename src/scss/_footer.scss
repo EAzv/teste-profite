@@ -1,0 +1,75 @@
+//
+footer {
+	display: block;
+	position: relative;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	min-height: 50px;
+	bottom: 0px;
+	background: #011627;
+
+	div {
+		display: flex;
+		flex-direction: column;
+		width: 90%;
+		max-width: $max_default_size;
+		min-height: 50px;
+		margin: 0 auto;
+		padding: 1rem 0 1rem;
+		@media only screen and (min-width: $mobile_size) { // em desktop divide em 3 partes
+			flex-direction: row;
+		}
+
+		div.block {
+			display: block;
+			width: 100%;
+			@media only screen and (min-width: $mobile_size) { // em desktop divide em 3 partes
+				display: inline-block;
+				width: 33.3%;
+			}
+
+			h1 {
+				position: relative;
+				color: #fff;
+				font-style: normal;
+				font-weight: bold;
+				font-size: 1.3rem;
+				line-height: normal;
+				margin: 0.7rem 0 0.1rem;
+				width: 90%;
+
+				&:after {
+					content: '';
+					display: block;
+					position: absolute;
+					bottom: -0.39rem;
+					left: 0rem;
+					width: 2.1rem;
+					height: 3px;
+					background: $default_yellow;
+				}
+			}
+
+			h2 {
+				color: #fff;
+				font-style: normal;
+				font-size: 1rem;
+				margin-bottom: 0.2rem;
+			}
+
+			p {
+				color: #fff;
+				font-style: normal;
+				font-size: 0.87rem;
+				margin-top: 0.1rem;
+			}
+
+			.address {
+				display: inline-block;
+				width: 49%;
+			}
+
+		}
+	}
+}

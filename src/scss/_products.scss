@@ -1,0 +1,140 @@
+//
+
+div.products {
+	display: block;
+	width: 100%;
+	max-width: $max_default_size;
+	min-height: 50px;
+	background: #fff;
+	margin: 0 auto;
+
+	>h1 {
+		position: relative;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 1.3rem;
+		line-height: normal;
+		margin: 1.7rem auto 3rem;
+		width: 90%;
+
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			bottom: -0.39rem;
+			left: 0rem;
+			width: 2.1rem;
+			height: 3px;
+			background: $default_yellow;
+		}
+	}
+
+	div[data-primeirosProdutos] {
+		display: block;
+		position: relative;
+		width: 99%;
+		min-height: 50px;
+		margin: 0;
+		padding: 0;
+		background: #fff;
+		overflow: hidden;
+
+		ul {
+			position: relative;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			height: 22rem;
+
+			li {
+				position: absolute;
+				width: 48%;
+				height: 22rem;
+				margin: 0;
+				padding: 0;
+				list-style: none;
+				overflow: hidden;
+				transition: left 1s linear;
+
+				div {
+					position: absolute;
+					display: block;
+					top: 0px; left: 0px;
+					width: 99%;
+					margin: 0;
+					text-align: center;
+
+					img {
+						display: inline;
+						width: 90%;
+					}
+					h1 {
+						font-size: 0.9rem;
+						margin: 0.3rem auto 0;
+					}
+					del { font-size: 0.7rem; }
+					h2 {
+						font-size: 1.2rem;
+						font-weight: normal;
+						color: #2EC4B6;
+						margin: 0;
+					}
+					span {
+						font-size: 0.9rem;
+					}
+					button {
+						display: block;
+						width: 8.97rem;
+						height: 2.99rem;
+						margin: 0.1rem auto;
+						color: transparent;
+						border: none;
+						cursor: pointer;
+						background: transparent;
+						background-image: url("../../images/btn-comprar.svg");
+						background-repeat: no-repeat;
+						background-size: contain;
+						background-position: 49% 49%;
+					}
+					div.off {
+						position: absolute;
+						top: 0px;
+						border: none;
+						color: #fff;
+						background: $default_yellow;
+					}
+				}
+			}
+
+		}
+		div[data-counter] {
+			display: block;
+			position: relative;
+			width: 100%;
+			top: auto;
+			left: 1px; right: 1px;
+			bottom: 1px;
+			text-align: center;
+			z-index: 9999;
+
+			span {
+				display: inline-block;
+				width: 12px;
+				height: 12px;
+				text-align: center;
+				cursor: pointer;
+
+				&:before {
+					content: '';
+					display: block;
+					width: 7.9px; height: 7.9px;
+					border: none;
+					border-radius: 4px;
+					background: #BDBDBD;
+				}
+
+				&.curr:before { background: $default_yellow; }
+			}
+		}
+	}
+}

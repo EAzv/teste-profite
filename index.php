@@ -53,7 +53,25 @@
 	</main>
 
 	<footer>
-		<!-- -->
+		<div>
+			<div class="block">
+				<h1>Localização</h1>
+				<div class="address">
+					<h2>São Paulo</h2>
+					<p>Rua do Rócio, 423/1801<br> Vila Olímpia - SP<br> 04552-000<br> +55 11 3333 3333</p>
+				</div>
+				<div class="address">
+					<h2>Rio de Janeiro</h2>
+					<p>Vol. da Pátria, 301/702<br> Botafogo - RJ<br> 22270-000<br> +55 21 3333 3333</p>
+				</div>
+			</div>
+			<div class="block">
+2
+			</div>
+			<div class="block">
+3
+			</div>
+		</div>
 	</footer>
 	<script
 	 data-main="build/js/index.js<?=  uniqid('?=') ?>"
