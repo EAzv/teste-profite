@@ -31,20 +31,29 @@ body {
       display: flex;
       position: relative;
       flex-wrap: wrap;
+      flex-direction: row;
       align-items: center; }
       body header.header nav.navbar a.logo {
         order: 2;
         margin: 0 auto; }
+        @media only screen and (min-width: 812px) {
+          body header.header nav.navbar a.logo {
+            order: 1;
+            margin: 0; } }
         body header.header nav.navbar a.logo img {
           display: block;
           margin: 0;
           width: 4.69rem;
           height: auto; }
+          @media only screen and (min-width: 812px) {
+            body header.header nav.navbar a.logo img {
+              width: 6.47rem; } }
       body header.header nav.navbar a.cart-icon {
         order: 3;
         width: 2.14rem;
         height: 1.9rem;
         border: none;
+        position: relative;
         background: transparent;
         background-image: url("../../images/cart-icon.svg");
         background-repeat: no-repeat;
@@ -53,10 +62,10 @@ body {
         body header.header nav.navbar a.cart-icon span {
           position: absolute;
           top: 0.63rem;
-          right: 0.1rem;
+          right: -0.14rem;
           background: #2EC4B6;
           color: #fff;
-          font-size: 0.72rem;
+          font-size: 0.73rem;
           width: 0.8rem;
           height: 0.8rem;
           border-radius: 100%;
@@ -75,6 +84,10 @@ body {
         background-repeat: no-repeat;
         background-size: 77%;
         background-position: 49% 49%; }
+        @media only screen and (min-width: 812px) {
+          body header.header nav.navbar button.toggle-menu {
+            display: none;
+            order: unset; } }
       body header.header nav.navbar div.search {
         order: 4;
         display: block;
@@ -83,6 +96,11 @@ body {
         padding: 0;
         width: 100%;
         overflow: hidden; }
+        @media only screen and (min-width: 812px) {
+          body header.header nav.navbar div.search {
+            order: 2;
+            display: inline-block;
+            width: 29rem; } }
         body header.header nav.navbar div.search input[type="text"] {
           display: inline-block;
           position: relative;

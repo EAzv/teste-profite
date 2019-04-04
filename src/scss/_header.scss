@@ -11,17 +11,26 @@ header.header {
 		display: flex;
 		position: relative;
 		flex-wrap: wrap;
+		flex-direction: row;
 		align-items: center;
 
 		a.logo {
 			order: 2;
 			margin: 0 auto;
+			@media only screen and (min-width: $mobile_size) { // reordena em desktop
+				order: 1;
+				margin: 0;
+			}
 
 			img {
 				display: block;
 				margin: 0;
 				width: 4.69rem;
 				height: auto;
+
+				@media only screen and (min-width: $mobile_size) { // reordena em desktop
+					width: 6.47rem;
+				}
 			}
 		}
 
@@ -30,6 +39,7 @@ header.header {
 			width: 2.14rem;
 			height: 1.9rem;
 			border: none;
+			position: relative;
 			background: transparent;
 			background-image: url("../../images/cart-icon.svg");
 			background-repeat: no-repeat;
@@ -38,10 +48,10 @@ header.header {
 
 			span {
 				position: absolute;
-				top: 0.63rem; right: 0.1rem;
+				top: 0.63rem; right: -0.14rem;
 				background: #2EC4B6;
 				color: #fff;
-				font-size: 0.72rem;
+				font-size: 0.73rem;
 				width: 0.8rem;
 				height: 0.8rem;
 				border-radius: 100%;
@@ -52,6 +62,10 @@ header.header {
 		}
 
 		button.toggle-menu {
+			@media only screen and (min-width: $mobile_size) { // não exibe em desktop
+				display: none;
+				order: unset;
+			}
 			order: 1;
 			width: 1.9rem;
 			height: 1.9rem;
@@ -73,6 +87,12 @@ header.header {
 			padding: 0;
 			width: 100%;
 			overflow: hidden;
+
+			@media only screen and (min-width: $mobile_size) { // reordena em desktop
+				order: 2;
+				display: inline-block;
+				width: 29rem;
+			}
 
 			input[type="text"] {
 				display: inline-block;
