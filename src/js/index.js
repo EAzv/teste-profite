@@ -4,12 +4,19 @@
  */
 
 import LoadProducts from "./loadProducts.js";
+import setupSlider from "./bannerSlider.js";
 
 /*
  * Método inicial
  */
-(function () {
+(function ()
+{
+	//
+	setupSlider(
+		document.getElementById('banner_slider')
+	);
 
+	//
 	let primeirosProdutos = new LoadProducts(
 		'../../produtos.json',
 		document.querySelector('[data-primeirosProdutos]')

@@ -27,7 +27,22 @@
 	</header>
 
 	<main>
-		<div class="gallery"></div>
+		<div class="banner" id="banner_slider">
+			<ul class="slider">
+				<li>
+					<img src="./images/Untitled design.png" alt="Image">
+					<h1>Nossa especialidade: experiência de compra.</h1>
+				</li>
+				<li>
+					<img src="./images/Untitled design.jpg" alt="Image">
+					<h1>Quae hic rei publicae vulnera inponebat.</h1>
+				</li>
+				<li>
+					<img src="./images/Untitled design.jpg" alt="Image">
+					<h1>Lorem ipsum dolor sit amet, consectetur adipiscing.</h1>
+				</li>
+			</ul>
+		</div>
 
 		<div class="products">
 			<h1>Produtos</h1>

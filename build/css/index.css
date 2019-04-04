@@ -109,16 +109,81 @@ body {
     display: block;
     position: relative;
     margin: 1rem auto 1.3rem;
-    width: 90%;
-    max-width: 1097px; }
+    width: 100%; }
     body main div.banner {
       display: block;
+      position: relative;
       width: 100%;
       min-height: 50px;
-      background: #2EC4B6; }
+      background: #2EC4B6;
+      overflow: hidden; }
+      body main div.banner ul {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        width: 100%;
+        height: 14.9rem; }
+        body main div.banner ul li {
+          position: absolute;
+          margin: 0;
+          padding: 0;
+          width: 100%;
+          list-style: none;
+          overflow: hidden;
+          background: #209086;
+          transition: left 1s linear; }
+          body main div.banner ul li h1 {
+            position: relative;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 2.22rem;
+            line-height: normal;
+            color: #fff;
+            margin: 0;
+            padding: 1.2rem;
+            cursor: default; }
+            body main div.banner ul li h1:after {
+              content: '';
+              display: block;
+              position: absolute;
+              bottom: 0.3rem;
+              left: 1.2rem;
+              width: 3rem;
+              height: 4px;
+              background: #FF9F1C; }
+          body main div.banner ul li img {
+            position: absolute;
+            opacity: 0.6; }
+      body main div.banner div[data-boxnavcounter] {
+        display: block;
+        position: absolute;
+        width: 100%;
+        top: auto;
+        left: 1px;
+        right: 1px;
+        bottom: 1px;
+        text-align: center;
+        z-index: 9999; }
+        body main div.banner div[data-boxnavcounter] span {
+          display: inline-block;
+          width: 12px;
+          height: 12px;
+          text-align: center;
+          cursor: default; }
+          body main div.banner div[data-boxnavcounter] span i {
+            display: block;
+            width: 7.9px;
+            height: 7.9px;
+            border: none;
+            border-radius: 4px;
+            background: #BDBDBD; }
+          body main div.banner div[data-boxnavcounter] span.curr i {
+            background: #FF9F1C; }
     body main div.products {
       display: block;
-      width: 100%;
+      width: 90%;
+      max-width: 1097px;
       min-height: 50px;
       background: #fff; }
       body main div.products > h1 {

@@ -1,7 +1,8 @@
-define(["./loadProducts.js"], function (_loadProducts) {
+define(["./loadProducts.js", "./bannerSlider.js"], function (_loadProducts, _bannerSlider) {
   "use strict";
 
   _loadProducts = _interopRequireDefault(_loadProducts);
+  _bannerSlider = _interopRequireDefault(_bannerSlider);
 
   function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -14,6 +15,9 @@ define(["./loadProducts.js"], function (_loadProducts) {
    * Método inicial
    */
   (function () {
+    //
+    (0, _bannerSlider["default"])(document.getElementById('banner_slider')); //
+
     var primeirosProdutos = new _loadProducts["default"]('../../produtos.json', document.querySelector('[data-primeirosProdutos]')); // executa o carregamento da lista e passa um template para os itens
 
     primeirosProdutos.process(function (produto) {
