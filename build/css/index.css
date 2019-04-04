@@ -234,7 +234,7 @@ body {
           border: none;
           cursor: pointer;
           background: transparent;
-          background-image: url("../../images/arrow-icon.svg");
+          background-image: url("../../images/white-arrow-icon.svg");
           background-repeat: no-repeat;
           background-size: contain;
           background-position: 49% 49%; }
@@ -291,16 +291,20 @@ body {
             overflow: hidden;
             transition: left 1s linear; }
             body main div.products div[data-primeirosProdutos] ul li div {
-              position: absolute;
               display: block;
-              top: 0px;
-              left: 0px;
-              width: 99%;
-              margin: 0;
+              width: 80%;
+              margin: 0 auto;
               text-align: center; }
+              @media only screen and (min-width: 812px) {
+                body main div.products div[data-primeirosProdutos] ul li div {
+                  width: 70%; } }
               body main div.products div[data-primeirosProdutos] ul li div img {
-                display: inline;
-                width: 90%; }
+                display: block;
+                width: 72%;
+                margin: 0 auto; }
+                @media only screen and (min-width: 812px) {
+                  body main div.products div[data-primeirosProdutos] ul li div img {
+                    width: 67%; } }
               body main div.products div[data-primeirosProdutos] ul li div h1 {
                 font-size: 0.9rem;
                 margin: 0.3rem auto 0; }
@@ -358,6 +362,37 @@ body {
               background: #BDBDBD; }
             body main div.products div[data-primeirosProdutos] div[data-counter] span.curr:before {
               background: #FF9F1C; }
+      body main div.products div.arrows {
+        display: block;
+        position: relative;
+        top: 45%;
+        width: 99%;
+        height: 1px;
+        max-width: 1097px;
+        margin: 0 auto; }
+        @media only screen and (max-width: 812px) {
+          body main div.products div.arrows {
+            display: none; } }
+        body main div.products div.arrows span {
+          position: absolute;
+          top: -14.9rem;
+          right: -0.1rem;
+          left: auto;
+          width: 1.9rem;
+          height: 1.9rem;
+          padding: 0;
+          color: transparent;
+          border: none;
+          cursor: pointer;
+          background: transparent;
+          background-image: url("../../images/dark-arrow-icon.svg");
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: 49% 49%; }
+          body main div.products div.arrows span:first-child {
+            left: -0.1rem;
+            right: auto;
+            transform: rotate(180deg); }
   body footer {
     display: block;
     position: relative;

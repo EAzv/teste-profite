@@ -43,8 +43,7 @@
 				</li>
 			</ul>
 			<div class="arrows">
-				<span></span>
-				<span></span>
+				<span></span> <span></span>
 			</div>
 		</div>
 

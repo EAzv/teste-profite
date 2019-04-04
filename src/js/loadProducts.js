@@ -70,6 +70,30 @@ export default class LoadProducts
 				 .setAttribute('data-counter', event.target.dataset.countnum);
 				this.setupBoxes();
 			}, true);
+
+
+		// prepara as setas e seus eventos
+		var arrows = this._element.querySelector('div.arrows');
+		if (!arrows){
+			arrows = this._element.appendChild(document.createElement('div'));
+			arrows.setAttribute('class', 'arrows');
+			arrows.innerHTML = `<span></span> <span></span>`;
+			arrows.querySelectorAll('span')[0].addEventListener('click', event => this._setSlider(-1), true);
+			arrows.querySelectorAll('span')[1].addEventListener('click', event => this._setSlider(1), true);
+		}
+	}
+
+	/**
+	 */
+	_setSlider (n = 0)
+	{
+		var _cwrap = this._element.querySelector('div[data-counter]');
+		var curr = _cwrap.getAttribute('data-counter') || 0;
+
+		curr = parseInt(curr) + parseInt(n);
+		_cwrap.setAttribute('data-counter', curr);
+
+		this.setupBoxes();
 	}
 
 	/**
@@ -85,21 +109,15 @@ export default class LoadProducts
 		}, false);
 
 		this._element.addEventListener('touchend', (event) => {
-			var _cwrap = this._element.querySelector('div[data-counter]');
-			var curr  = _cwrap.getAttribute('data-counter') || 0;
-
 			touchendX = event.changedTouches[0].screenX;
 
 			if (touchendX < touchstartX)
-				curr++;
+				this._setSlider(1);
 			else if (touchendX > touchstartX)
-				curr--;
+				this._setSlider(-1);
 
-			_cwrap.setAttribute('data-counter', curr);
 			touchstartX = 0;
 			touchendX = 0;
-
-			this.setupBoxes();
 		}, false);
 	}
 }

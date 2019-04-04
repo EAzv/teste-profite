@@ -57,16 +57,21 @@ div.products {
 				transition: left 1s linear;
 
 				div {
-					position: absolute;
 					display: block;
-					top: 0px; left: 0px;
-					width: 99%;
-					margin: 0;
+					width: 80%;
+					margin: 0 auto;
 					text-align: center;
+					@media only screen and (min-width: $mobile_size) { // em desktop
+						width: 70%;
+					}
 
 					img {
-						display: inline;
-						width: 90%;
+						display: block;
+						width: 72%;
+						margin: 0 auto;
+						@media only screen and (min-width: $mobile_size) { // em desktop
+							width: 67%;
+						}
 					}
 					h1 {
 						font-size: 0.9rem;
@@ -136,5 +141,44 @@ div.products {
 				&.curr:before { background: $default_yellow; }
 			}
 		}
+	}
+
+	div.arrows {
+		display: block;
+		position: relative;
+		top: 45%;
+		width: 99%;
+		height: 1px;
+		max-width: $max_default_size;
+		margin: 0 auto;
+
+		@media only screen and (max-width: $mobile_size) { // esconde quando mobile
+			display: none;
+		}
+
+		span {
+			position: absolute;
+			top: -14.9rem;
+			right: -0.1rem;
+			left: auto;
+			width: 1.9rem;
+			height: 1.9rem;
+			padding: 0;
+			color: transparent;
+			border: none;
+			cursor: pointer;
+			background: transparent;
+			background-image: url("../../images/dark-arrow-icon.svg");
+			background-repeat: no-repeat;
+			background-size: contain;
+			background-position: 49% 49%;
+
+			&:first-child {
+				left: -0.1rem;
+				right: auto;
+				transform: rotate(180deg);
+			}
+		}
+
 	}
 }

@@ -37,6 +37,7 @@ import setupSlider from "./bannerSlider.js";
 })();
 
 
+//
 window.isMobile = function ()
 {
 	if (window.document.body.offsetWidth > 812)

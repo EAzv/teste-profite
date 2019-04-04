@@ -23,7 +23,8 @@ define(["./loadProducts.js", "./bannerSlider.js"], function (_loadProducts, _ban
     primeirosProdutos.process(function (produto) {
       return "\n\t\t\t<div>\n\t\t\t\t".concat(produto.off ? '<div class="off">Off</div>' : '', "\n\t\t\t\t<img src=\"images/products/").concat(produto.image, "\">\n\t\t\t\t<h1>").concat(produto.title, "</h1>\n\t\t\t\t<del>de R$ ").concat(produto.old_price, "</del>\n\t\t\t\t<h2>por R$ ").concat(produto.price, "</h2>\n\t\t\t\t<span>").concat(produto.note, "</span>\n\t\t\t\t<button>Comprar</button>\n\t\t\t</div>\n\t\t");
     });
-  })();
+  })(); //
+
 
   window.isMobile = function () {
     if (window.document.body.offsetWidth > 812) return false;

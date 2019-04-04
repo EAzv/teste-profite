@@ -154,7 +154,8 @@ define(["exports"], function (_exports) {
 
               _this2.setupBoxes();
             }, true);
-          }
+          } // prepara as setas e seus eventos
+
         } catch (err) {
           _didIteratorError3 = true;
           _iteratorError3 = err;
@@ -169,6 +170,37 @@ define(["exports"], function (_exports) {
             }
           }
         }
+
+        var arrows = this._element.querySelector('div.arrows');
+
+        if (!arrows) {
+          arrows = this._element.appendChild(document.createElement('div'));
+          arrows.setAttribute('class', 'arrows');
+          arrows.innerHTML = "<span></span> <span></span>";
+          arrows.querySelectorAll('span')[0].addEventListener('click', function (event) {
+            return _this2._setSlider(-1);
+          }, true);
+          arrows.querySelectorAll('span')[1].addEventListener('click', function (event) {
+            return _this2._setSlider(1);
+          }, true);
+        }
+      }
+      /**
+       */
+
+    }, {
+      key: "_setSlider",
+      value: function _setSlider() {
+        var n = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+
+        var _cwrap = this._element.querySelector('div[data-counter]');
+
+        var curr = _cwrap.getAttribute('data-counter') || 0;
+        curr = parseInt(curr) + parseInt(n);
+
+        _cwrap.setAttribute('data-counter', curr);
+
+        this.setupBoxes();
       }
       /**
        * prepara os eventos
@@ -187,18 +219,10 @@ define(["exports"], function (_exports) {
         }, false);
 
         this._element.addEventListener('touchend', function (event) {
-          var _cwrap = _this3._element.querySelector('div[data-counter]');
-
-          var curr = _cwrap.getAttribute('data-counter') || 0;
           touchendX = event.changedTouches[0].screenX;
-          if (touchendX < touchstartX) curr++;else if (touchendX > touchstartX) curr--;
-
-          _cwrap.setAttribute('data-counter', curr);
-
+          if (touchendX < touchstartX) _this3._setSlider(1);else if (touchendX > touchstartX) _this3._setSlider(-1);
           touchstartX = 0;
           touchendX = 0;
-
-          _this3.setupBoxes();
         }, false);
       }
     }]);
